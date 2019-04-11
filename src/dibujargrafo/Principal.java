@@ -173,6 +173,11 @@ public class Principal extends javax.swing.JFrame {
         mandarin.setText("Mandarín");
 
         todos.setText("Todos");
+        todos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                todosActionPerformed(evt);
+            }
+        });
 
         portugues.setText("Portugués");
 
@@ -310,12 +315,17 @@ public class Principal extends javax.swing.JFrame {
         if (seleccionado == null) {
             seleccionado = Metodos.seleccionar(x, y, d, lista);
             if (seleccionado != null) {
-                Metodos.dibujarIcono(s_ico, seleccionado.getX(), seleccionado.getY(), panel);
+                if(seleccionado.getGen() == 'f'){
+                    Metodos.dibujarIcono(iconoSeleccionado2, seleccionado.getX(), seleccionado.getY(), panel);
+                }else{
+                    Metodos.dibujarIcono(iconoSeleccionado, seleccionado.getX(), seleccionado.getY(), panel);
+                }
+                
                 System.out.println("Nombre: " + seleccionado.getName());
                 System.out.println("Genero: " + seleccionado.getGen());
                 System.out.print("Idiomas: ");
-                for(String ite : seleccionado.getLeng()){                 
-                    System.out.print(ite+", ");
+                for (String ite : seleccionado.getLeng()) {
+                    System.out.print(ite + ", ");
                 }
                 System.out.println("");
                 System.out.println("");
@@ -337,9 +347,16 @@ public class Principal extends javax.swing.JFrame {
                 Metodos.dibujarLinea(seleccionado.getX(), seleccionado.getY(), destino.getX(), destino.getY(), panel);
                 Metodos.dibujarIcono(ico, destino.getX(), destino.getY(), panel);
             }
-
-            Metodos.dibujarIcono(ico, seleccionado.getX(), seleccionado.getY(), panel);
-            seleccionado = null;
+            if(seleccionado.getGen() == 'f'){
+                    Metodos.dibujarIcono(icono2, seleccionado.getX(), seleccionado.getY(), panel);
+                    seleccionado = null;
+                }else{
+                    Metodos.dibujarIcono(icono, seleccionado.getX(), seleccionado.getY(), panel);
+                    seleccionado = null;
+                }
+            
+            
+            
         }
     }
 
@@ -356,7 +373,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_name_fieldActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-        if (name_field.getText().equalsIgnoreCase("")) {
+        if (name_field.getText().equalsIgnoreCase("") || check()) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos antes de continuar");
         } else {
             if (gender_box.getSelectedItem().toString().equalsIgnoreCase("Masculino")) {
@@ -376,10 +393,25 @@ public class Principal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_agregarActionPerformed
-
+    private boolean check() {
+        if (!espanol.isSelected() && !ingles.isSelected() && !aleman.isSelected() && !mandarin.isSelected() && !frances.isSelected() && !portugues.isSelected() && !todos.isSelected()) {
+            return true;
+        }
+        return false;
+    }
     private void espanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espanolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_espanolActionPerformed
+
+    private void todosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosActionPerformed
+        espanol.setEnabled(false);
+        ingles.setEnabled(false);
+        mandarin.setEnabled(false);
+        portugues.setEnabled(false);
+        frances.setEnabled(false);
+        aleman.setEnabled(false);
+
+    }//GEN-LAST:event_todosActionPerformed
 
     private void putName() {
         JLabel namelbl = new JLabel(name_field.getText());  //Se crea un nuevo label para mostrar el nombre
@@ -406,19 +438,19 @@ public class Principal extends javax.swing.JFrame {
             if (espanol.isSelected()) {
                 idiomas.add("Español");
             }
-            if(ingles.isSelected()){
+            if (ingles.isSelected()) {
                 idiomas.add("Inglés");
             }
-            if(frances.isSelected()){
+            if (frances.isSelected()) {
                 idiomas.add("Francés");
             }
-            if(aleman.isSelected()){
+            if (aleman.isSelected()) {
                 idiomas.add("Alemán");
             }
-            if(mandarin.isSelected()){
+            if (mandarin.isSelected()) {
                 idiomas.add("Mandarín");
             }
-            if(portugues.isSelected()){
+            if (portugues.isSelected()) {
                 idiomas.add("Portugués");
             }
         }

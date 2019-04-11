@@ -17,7 +17,8 @@ public class Metodos {
         y = y - (icono.getHeight()/2);
         Graphics g = panel.getGraphics();
         g.drawImage(icono, x, y, icono.getWidth(), icono.getHeight(),panel);
-        g.dispose();      
+        g.dispose();    
+        
     }
     
     public static void getImagen(JPanel panel){

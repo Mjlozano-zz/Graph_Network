@@ -34,7 +34,7 @@ public class Principal extends javax.swing.JFrame {
     BufferedImage icono2 = Metodos.cargarImagen("icon2");
     BufferedImage iconoSeleccionado2 = Metodos.cargarImagen("icon2-selected");
     int xtemp, ytemp, cont = 0;
-    boolean with_name = false, first_init = true;
+    boolean with_name = false, first_init = true, green_light = false;
 
     public Principal() throws IOException {
         initComponents();
@@ -59,18 +59,20 @@ public class Principal extends javax.swing.JFrame {
         gender_box = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         agregar = new javax.swing.JButton();
+        espanol = new javax.swing.JCheckBox();
+        ingles = new javax.swing.JCheckBox();
+        frances = new javax.swing.JCheckBox();
+        aleman = new javax.swing.JCheckBox();
+        mandarin = new javax.swing.JCheckBox();
+        todos = new javax.swing.JCheckBox();
+        portugues = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 1024, 768));
 
+        panel.setBackground(new java.awt.Color(255, 255, 255));
         panel.setPreferredSize(new java.awt.Dimension(800, 580));
         panel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -88,22 +90,17 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mapa.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mapa1.png"))); // NOI18N
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addGap(0, 2, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addGap(0, 2, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
         );
 
         jPanel1.setBackground(new java.awt.Color(191, 54, 12));
@@ -140,38 +137,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel4.setText("Idiomas:");
 
-        jRadioButton1.setText("Español");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-
-        jRadioButton2.setText("Inglés");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-
-        jRadioButton3.setText("Alemán");
-
-        jRadioButton4.setText("Francés");
-
-        jRadioButton5.setText("Mandarín");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
-            }
-        });
-
-        jRadioButton6.setText("Mandarín");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
-            }
-        });
-
         jPanel2.setBackground(new java.awt.Color(191, 54, 12));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -192,6 +157,25 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        espanol.setText("Español");
+        espanol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                espanolActionPerformed(evt);
+            }
+        });
+
+        ingles.setText("Inglés");
+
+        frances.setText("Francés");
+
+        aleman.setText("Alemán");
+
+        mandarin.setText("Mandarín");
+
+        todos.setText("Todos");
+
+        portugues.setText("Portugués");
+
         javax.swing.GroupLayout infoLayout = new javax.swing.GroupLayout(info);
         info.setLayout(infoLayout);
         infoLayout.setHorizontalGroup(
@@ -206,21 +190,22 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(gender_box, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(infoLayout.createSequentialGroup()
                         .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton3))
+                            .addComponent(espanol)
+                            .addComponent(aleman))
                         .addGap(10, 10, 10)
                         .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(infoLayout.createSequentialGroup()
-                                .addComponent(jRadioButton2)
+                                .addComponent(ingles)
                                 .addGap(10, 10, 10)
-                                .addComponent(jRadioButton4))
+                                .addComponent(frances))
                             .addGroup(infoLayout.createSequentialGroup()
-                                .addComponent(jRadioButton5)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton6))
-                            .addGroup(infoLayout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(agregar)))))
+                                .addComponent(mandarin)
+                                .addGap(10, 10, 10)
+                                .addComponent(portugues))))
+                    .addGroup(infoLayout.createSequentialGroup()
+                        .addComponent(todos)
+                        .addGap(89, 89, 89)
+                        .addComponent(agregar)))
                 .addGap(14, 14, 14))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -241,17 +226,19 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton4))
+                    .addComponent(espanol)
+                    .addComponent(ingles)
+                    .addComponent(frances))
                 .addGap(15, 15, 15)
                 .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6))
-                .addGap(18, 18, 18)
-                .addComponent(agregar)
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(aleman)
+                    .addComponent(mandarin)
+                    .addComponent(portugues))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(agregar)
+                    .addComponent(todos))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -263,6 +250,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(info, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
         );
@@ -302,15 +290,18 @@ public class Principal extends javax.swing.JFrame {
         xtemp = evt.getX();  //Se obtiene las coordenadas
         ytemp = evt.getY();  //donde se pondra el nodo
         if (Metodos.colisiona(xtemp, ytemp, 50, lista) && cont >= 2) {
-            setNode(icono, iconoSeleccionado);
-        } else if(Metodos.colisiona(xtemp, ytemp, 50, lista)==false){
+            green_light = true;
+            setNodeMain(icono, iconoSeleccionado, "noName", 'm', null);
+        } else if (Metodos.colisiona(xtemp, ytemp, 50, lista) == false) {
             setEnableRec(info, true);
             with_name = false;
             first_init = false;
         }
 
     }//GEN-LAST:event_panelMouseReleased
-    private void setNode(BufferedImage ico, BufferedImage s_ico) {
+
+    private void setNodeMain(BufferedImage ico, BufferedImage s_ico, String nam, Character gen, ArrayList<String> idi) {
+
         int d = 50, r = d / 2;
         int x = xtemp;
         int y = ytemp;
@@ -320,6 +311,14 @@ public class Principal extends javax.swing.JFrame {
             seleccionado = Metodos.seleccionar(x, y, d, lista);
             if (seleccionado != null) {
                 Metodos.dibujarIcono(s_ico, seleccionado.getX(), seleccionado.getY(), panel);
+                System.out.println("Nombre: " + seleccionado.getName());
+                System.out.println("Genero: " + seleccionado.getGen());
+                System.out.print("Idiomas: ");
+                for(String ite : seleccionado.getLeng()){                 
+                    System.out.print(ite+", ");
+                }
+                System.out.println("");
+                System.out.println("");
             } else {
                 if (Metodos.sePuedeDibujar(x, y, r, ancho, alto)) {
                     if (!Metodos.colisiona(x, y, d, lista)) {
@@ -328,7 +327,7 @@ public class Principal extends javax.swing.JFrame {
                         int blue = (int) (Math.random() * 255);
                         Color c = new Color(red, green, blue);
                         Metodos.dibujarIcono(ico, x, y, panel);
-                        lista.add(new Nodo(x, y, d, c));
+                        lista.add(new Nodo(x, y, d, c, nam, gen, idi));
                     }
                 }
             }
@@ -356,32 +355,16 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_name_fieldActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
-
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
-
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         if (name_field.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Llene todos los campos antes de continuar");
         } else {
             if (gender_box.getSelectedItem().toString().equalsIgnoreCase("Masculino")) {
-                setNode(icono, iconoSeleccionado);
+                setNodeMain(icono, iconoSeleccionado, name_field.getText(), 'm', addLang());
                 putName();
                 cont++;
             } else {
-                setNode(icono2, iconoSeleccionado2);
+                setNodeMain(icono2, iconoSeleccionado2, name_field.getText(), 'f', addLang());
                 putName();
                 cont++;
             }
@@ -394,6 +377,10 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_agregarActionPerformed
 
+    private void espanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espanolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_espanolActionPerformed
+
     private void putName() {
         JLabel namelbl = new JLabel(name_field.getText());  //Se crea un nuevo label para mostrar el nombre
         jLabel1.add(namelbl);
@@ -403,6 +390,39 @@ public class Principal extends javax.swing.JFrame {
         namelbl.setHorizontalTextPosition(0);
         namelbl.setFont(new Font("Dialog", Font.BOLD, 12));
         namelbl.setBackground(new Color(0, 0, 0, 0));
+    }
+
+    private ArrayList<String> addLang() {  //Agrega los idiomas a las persona
+        ArrayList<String> idiomas = new ArrayList<String>();
+        if (todos.isSelected()) {
+            idiomas.add("Español");
+            idiomas.add("Inglés");
+            idiomas.add("Francés");
+            idiomas.add("Alemán");
+            idiomas.add("Mandarín");
+            idiomas.add("Portugués");
+            return (idiomas);
+        } else {
+            if (espanol.isSelected()) {
+                idiomas.add("Español");
+            }
+            if(ingles.isSelected()){
+                idiomas.add("Inglés");
+            }
+            if(frances.isSelected()){
+                idiomas.add("Francés");
+            }
+            if(aleman.isSelected()){
+                idiomas.add("Alemán");
+            }
+            if(mandarin.isSelected()){
+                idiomas.add("Mandarín");
+            }
+            if(portugues.isSelected()){
+                idiomas.add("Portugués");
+            }
+        }
+        return (idiomas);
     }
 
     public static void main(String args[]) {
@@ -416,16 +436,21 @@ public class Principal extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -436,7 +461,8 @@ public class Principal extends javax.swing.JFrame {
                     new Principal().setVisible(true);
 
                 } catch (IOException ex) {
-                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Principal.class
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -444,21 +470,22 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar;
+    private javax.swing.JCheckBox aleman;
+    private javax.swing.JCheckBox espanol;
+    private javax.swing.JCheckBox frances;
     private javax.swing.JComboBox<String> gender_box;
     private javax.swing.JPanel info;
+    private javax.swing.JCheckBox ingles;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JCheckBox mandarin;
     private javax.swing.JTextField name_field;
     private javax.swing.JPanel panel;
+    private javax.swing.JCheckBox portugues;
+    private javax.swing.JCheckBox todos;
     // End of variables declaration//GEN-END:variables
 }
